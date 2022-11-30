@@ -1,0 +1,27 @@
+@model FastBite.Models.Category
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Create Category </h2>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input class="btn btn-info form-control" type="submit" value="Create" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-success form-control">Back To List</a>
+        </div>
+
+    </div>
+</form>

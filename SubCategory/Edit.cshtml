@@ -1,0 +1,91 @@
+@model FastBite.Models.Viewmodels.CategoryAndSubCategoryModel
+@using FastBite.Extensions
+
+
+@{
+    ViewData["Title"] = "Edit";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<br />
+<h2 class="text-info">Edit Category</h2>
+<br />
+
+<form method="post" asp-action="Edit">
+
+    <input asp-for="Id" hidden />
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input class="btn btn-info form-control" type="submit" value="Update" asp-route-Id="@Model" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-success form-control">Back To List</a>
+        </div>
+
+    </div>
+</form>*@
+
+
+<form method="post">
+    <input asp-for="subCategory.Id" hidden />
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Edit SubCategory </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+            <div class="mb-3">
+                <!--<select>
+                @*@foreach (var item in Model.categoryList)
+                {
+                      <option value="@item.Id">@item.Name</option>
+                }*@
+                </select>-->
+                <label asp-for="categoryList"></label>
+                @Html.DropDownListFor(m => m.SelectedCategoryId, IEnumerableExtension.ToSelectListItem(Model.categoryList, Model.SelectedCategoryId))
+            </div>
+            <div class="mb-3">
+                <label asp-for="subCategory.Name"></label>
+                <input asp-for="subCategory.Name" class="form-control" />
+            </div>
+        </div>
+        <div class="col-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ExistingSub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.subCategoryList != null)
+                    {
+                        @foreach (var item in Model.subCategoryList)
+                        {
+
+                            <tr>
+                                <td>@item.Name</td>
+                            </tr>
+                            //@Html.LabelFor(m => item)
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input class="btn btn-info form-control" type="submit" value="Update" asp-route-Id="@Model" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-success form-control">Back To List</a>
+        </div>
+
+    </div>
+</form>

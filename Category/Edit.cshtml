@@ -1,0 +1,26 @@
+@model Category
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 class="text-info">Edit Category</h2>
+<br />
+
+<form method="post" asp-action="Edit">
+
+    <input asp-for="Id" hidden />
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input class="btn btn-info form-control" type="submit" value="Update" asp-route-Id="@Model" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-success form-control">Back To List</a>
+        </div>
+
+    </div>
+</form>

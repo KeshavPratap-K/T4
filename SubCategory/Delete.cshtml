@@ -1,0 +1,66 @@
+@model SubCategory
+@{
+    ViewData["Title"] = "Edit";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Edit SubCategory </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+            <div class="mb-3">
+                <!--<select>
+                @*@foreach (var item in Model.categoryList)
+                {
+                      <option value="@item.Id">@item.Name</option>
+                }*@
+                </select>-->
+                
+            </div>
+            <div class="mb-3">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" disabled class="form-control" />
+            </div>
+        </div>
+        @*<div class="col-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ExistingSub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.subCategoryList != null)
+                    {
+                        @foreach (var item in Model.subCategoryList)
+                        {
+
+                            <tr>
+                                <td>@item.Name</td>
+                            </tr>
+                            //@Html.LabelFor(m => item)
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>*@
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input class="btn btn-danger form-control" type="submit" value="Delete" asp-route-Id="@Model" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-success form-control">Back To List</a>
+        </div>
+
+    </div>
+</form>
